@@ -2,6 +2,8 @@ import { Dropdown } from "antd";
 import React, { useRef } from "react";
 import { Button, Input } from "../Generic";
 import { Container, Icons, MenuWrapper, Section } from "./style";
+import 'antd/dist/antd.css';
+
 
 export const Filter = () => {
   const countryRef = useRef();
