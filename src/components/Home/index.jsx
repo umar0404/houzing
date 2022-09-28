@@ -6,7 +6,6 @@ export const Home = () => {
   return (
     <Container>
       <h1>Home</h1>
-      <Input width={"829"} placeholder={"test"} />
     </Container>
   );
 };

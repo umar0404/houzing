@@ -18,17 +18,17 @@ const Wrapper = styled.div`
   padding: var(--padding);
   height: 64px;
   font-size: 16px;
-  max-width: 1440px;
-  /* font-style: normal;
-  font-weight: 400;
-  line-height: 24px; */
+  /* max-width: 1440px; */
+  width: 100%;
 `;
 
 const Section = styled.div`
   display: flex;
   align-items: center;
   cursor: ${({ logo }) => logo && "pointer"};
-
+  >h3{
+    padding-top: 8%;
+  }
   .active {
     color: lightseagreen;
   }
