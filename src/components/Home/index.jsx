@@ -1,10 +1,11 @@
 import React from "react";
+import GenCarousel from "../Carousel";
 import { Container } from "./style";
 
 export const Home = () => {
   return (
     <Container>
-      <h1>Home</h1>
+      <GenCarousel />
     </Container>
   );
 };
