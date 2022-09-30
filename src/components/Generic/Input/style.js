@@ -61,4 +61,8 @@ const Icon = styled.div`
   left: 10px;
 `;
 
+
 export { Container, Wrapper, Icon };
+
+
+// Filter is ready to work
