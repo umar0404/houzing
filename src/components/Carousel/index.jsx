@@ -41,7 +41,7 @@ export const GenCarousel = () => {
         <Content.Desc>112 Glenwood Ave Hyde Park, Boston, MA</Content.Desc>
         <Content.Price>$5,250/mo</Content.Price>
       </Content>
-      <Arrow onClick={onMove} data-name="right" left />
+      <Arrow onClick={onMove} data-name="right" left="true" />
       <Arrow onClick={onMove} data-name="left" />
     </Container>
   );

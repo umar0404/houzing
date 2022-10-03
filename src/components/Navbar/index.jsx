@@ -12,7 +12,7 @@ export const Navbar = () => {
       <Wrapper>
         <Section onClick={() => navigate("/home")} logo>
           <Logo />
-          <h3 style={{color:'white'}}>Houzing</h3>
+          <h3 style={{ color: "white" }}>Houzing</h3>
         </Section>
         <Section>
           {navbar.map(({ title, path, hidden }, index) => {
@@ -37,7 +37,7 @@ export const Navbar = () => {
           </Button>
         </Section>
       </Wrapper>
-      <Filter/>
+      <Filter />
       <Outlet />
     </Container>
   );
