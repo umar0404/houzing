@@ -23,7 +23,7 @@ export const Filter = () => {
   const minPriseRef = useRef();
   const maxPriseRef = useRef();
 
-  console.log(query.get("country"), "query");
+  // console.log(query.get("country"));
 
   const onChange = ({ target: { name, value } }) => {
     // console.log(name, value );
@@ -52,7 +52,7 @@ export const Filter = () => {
           defaultValue={query.get("city")}
           onChange={onChange}
           ref={cityRef}
-          name="city"
+          name="address"
           placeholder={"City"}
         />
         <Input

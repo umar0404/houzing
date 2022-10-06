@@ -6,19 +6,23 @@ import { ReactComponent as logoImg } from "../../assets/icons/logo.svg";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const Main = styled.div`
+  display: flex;
   justify-content: center;
+   background: var(--colorPrimary);
 `;
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--colorPrimary);
   color: #ffff;
   padding: var(--padding);
   height: 64px;
   font-size: 16px;
-  /* max-width: 1440px; */
+  max-width: 1440px;
   width: 100%;
 `;
 
@@ -26,7 +30,7 @@ const Section = styled.div`
   display: flex;
   align-items: center;
   cursor: ${({ logo }) => logo && "pointer"};
-  >h3{
+  > h3 {
     padding-top: 8%;
   }
   .active {
@@ -48,4 +52,4 @@ const Link = styled(NavLink)`
   color: white;
 `;
 
-export { Container, Wrapper, Section, Logo, Link };
+export { Container, Wrapper, Section, Logo, Link, Main };

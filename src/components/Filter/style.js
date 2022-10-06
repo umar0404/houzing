@@ -9,6 +9,11 @@ const Container = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   gap: 20px;
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  /* justify-content: center; */
+  /* align-items: center; */
 `;
 
 const Icons = styled.div``;
