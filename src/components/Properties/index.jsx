@@ -10,7 +10,6 @@ export const Properties = () => {
   const [data, setDate] = useState([]);
   const { search } = useLocation();
 
-  console.log(url);
   useEffect(() => {
     fetch(`${url}/houses/list${search}`)
       .then((res) => res.json())
