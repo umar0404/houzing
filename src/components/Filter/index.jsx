@@ -8,8 +8,7 @@ import useSearch from "../../hooks/useSearch";
 
 export const Filter = () => {
   const [data, setDate] = useState([]);
-  const [value, setValue] = useState("select");
-  // const { search } = useLocation();
+  const [value, setValue] = useState("Select Category");
 
   const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -23,8 +22,6 @@ export const Filter = () => {
   const zipRef = useRef();
 
   const roomsRef = useRef();
-  const sortRef = useRef();
-  const sizeRef = useRef();
 
   const minPriseRef = useRef();
   const maxPriseRef = useRef();
@@ -46,10 +43,14 @@ export const Filter = () => {
       (ctg) => ctg.id === Number(query.get("category_id"))
     );
     d?.name && setValue(d?.name);
+    !query.get("category_id") && setValue("Select Category");
   }, [location?.search, data, query]);
 
   const onChangeCategory = (category_id) => {
     navigate(`/properties${uzeReplace("category_id", category_id)}`);
+  };
+  const onChangeSort = (sort) => {
+    navigate(`/properties${uzeReplace("sort ", sort)}`);
   };
 
   const menu = (
@@ -78,23 +79,35 @@ export const Filter = () => {
           placeholder={"City"}
         />
         <Input
-          defaultValue={query.get("zip_code")}
           onChange={onChange}
-          ref={zipRef}
+          defaultValue={query.get("zip_code")}
           name="zip_code"
+          ref={zipRef}
           placeholder={"Zip Code"}
         />
       </Section>
       <h1 className="subTitle">Apartment info</h1>
       <Section>
-        <Input ref={roomsRef} placeholder={"Rooms"} />
-        <Input ref={sortRef} placeholder={"Sort"} />
-        <Input ref={sizeRef} placeholder={"Size"} />
+        <Input
+          onChange={onChange}
+          name="room"
+          ref={roomsRef}
+          placeholder={"Rooms"}
+        />
+        <SelectAnt
+          defaultValue={query.get("sort") || "Select Sort"}
+          onChange={onChangeSort}>
+          <SelectAnt.Option value={""}>Select sort</SelectAnt.Option>
+          <SelectAnt.Option value={"asc"}>O'suvchi</SelectAnt.Option>
+          <SelectAnt.Option value={"desc"}>Kamayuvchi</SelectAnt.Option>
+        </SelectAnt>
+
         <SelectAnt value={value} onChange={onChangeCategory}>
+          <SelectAnt.Option value={""}>Select Category</SelectAnt.Option>
           {data.map((value) => {
             return (
               <SelectAnt.Option key={value.id} value={value?.id}>
-                {(value.name)}
+                {value.name}
               </SelectAnt.Option>
             );
           })}
@@ -102,15 +115,22 @@ export const Filter = () => {
       </Section>
       <h1 className="subTitle">Price</h1>
       <Section>
-        <Input ref={minPriseRef} placeholder={"Min prise"} />
-        <Input ref={maxPriseRef} placeholder={"Max prise"} />
+        <Input
+          onChange={onChange}
+          name="min_price"
+          ref={minPriseRef}
+          placeholder={"Min prise"}
+        />
+        <Input
+          onChange={onChange}
+          name="max_price"
+          ref={maxPriseRef}
+          placeholder={"Max prise"}
+        />
       </Section>
-      <h1 className="subTitle">Footer</h1>
-      <Section></Section>
     </MenuWrapper>
   );
 
-  // console.log(useReplace("address", "toshkent"));
   return (
     <Container>
       <Input

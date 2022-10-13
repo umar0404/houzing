@@ -46,8 +46,8 @@ const Section = styled.div`
 
 const SelectAnt = styled(Select)`
   width: 100%;
-  min-width: 150px;
-  max-width: 150px;
+  min-width: 200px;
+  max-width: 200px;
   .ant-select-selector {
     height: 44px !important;
     display: flex;
