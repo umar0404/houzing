@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Select } from "antd";
 import { ReactComponent as houses } from "../../assets/icons/houses.svg";
 import { ReactComponent as filter } from "../../assets/icons/filter.svg";
 import { ReactComponent as setting } from "../../assets/icons/setting.svg";
@@ -43,4 +44,10 @@ const Section = styled.div`
   margin-bottom: 20px;
 `;
 
-export { Container, Icons, MenuWrapper, Section };
+const SelectAnt = styled(Select)`
+  width: 100%;
+  min-width: 150px;
+  max-width: 150px;
+`;
+
+export { Container, Icons, MenuWrapper, Section, SelectAnt };

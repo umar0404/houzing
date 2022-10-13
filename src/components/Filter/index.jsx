@@ -1,12 +1,16 @@
 import { Dropdown } from "antd";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Input } from "../Generic";
-import { Container, Icons, MenuWrapper, Section } from "./style";
+import { Container, Icons, MenuWrapper, Section, SelectAnt } from "./style";
 import { uzeReplace } from "../../hooks/useReplace";
 import { useNavigate, useLocation } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
 
 export const Filter = () => {
+  const [data, setDate] = useState([]);
+
+  const { REACT_APP_BASE_URL: url } = process.env;
+
   const location = useLocation();
   const navigate = useNavigate();
   const query = useSearch();
@@ -29,6 +33,14 @@ export const Filter = () => {
     // console.log(name, value );
     navigate(`${location.pathname}${uzeReplace(name, value)}`);
   };
+
+  useEffect(() => {
+    fetch(`${url}/categories/list`)
+      .then((res) => res.json())
+      .then((res) => {
+        setDate(res?.data || []);
+      });
+  }, []);
 
   const menu = (
     <MenuWrapper>
@@ -66,8 +78,17 @@ export const Filter = () => {
       <h1 className="subTitle">Apartment info</h1>
       <Section>
         <Input ref={roomsRef} name placeholder={"Rooms"} />
-        <Input ref={sizeRef} placeholder={"Size"} />
         <Input ref={sortRef} placeholder={"Sort"} />
+        <Input ref={sizeRef} placeholder={"Size"} />
+        <SelectAnt labelInValue>
+          {data.map((value) => {
+            return (
+              <SelectAnt.Option value={value?.id}>
+                {value.name}
+              </SelectAnt.Option>
+            );
+          })}
+        </SelectAnt>
       </Section>
       <h1 className="subTitle">Price</h1>
       <Section>
