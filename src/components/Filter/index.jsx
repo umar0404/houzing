@@ -8,6 +8,8 @@ import useSearch from "../../hooks/useSearch";
 
 export const Filter = () => {
   const [data, setDate] = useState([]);
+  const [value, setValue] = useState("select");
+  // const { search } = useLocation();
 
   const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -27,10 +29,7 @@ export const Filter = () => {
   const minPriseRef = useRef();
   const maxPriseRef = useRef();
 
-  // console.log(query.get("country"));
-
   const onChange = ({ target: { name, value } }) => {
-    // console.log(name, value );
     navigate(`${location.pathname}${uzeReplace(name, value)}`);
   };
 
@@ -41,6 +40,17 @@ export const Filter = () => {
         setDate(res?.data || []);
       });
   }, [url]);
+
+  useEffect(() => {
+    let [d] = data?.filter(
+      (ctg) => ctg.id === Number(query.get("category_id"))
+    );
+    d?.name && setValue(d?.name);
+  }, [location?.search, data, query]);
+
+  const onChangeCategory = (category_id) => {
+    navigate(`/properties${uzeReplace("category_id", category_id)}`);
+  };
 
   const menu = (
     <MenuWrapper>
@@ -77,14 +87,14 @@ export const Filter = () => {
       </Section>
       <h1 className="subTitle">Apartment info</h1>
       <Section>
-        <Input ref={roomsRef} name placeholder={"Rooms"} />
+        <Input ref={roomsRef} placeholder={"Rooms"} />
         <Input ref={sortRef} placeholder={"Sort"} />
         <Input ref={sizeRef} placeholder={"Size"} />
-        <SelectAnt labelInValue>
+        <SelectAnt value={value} onChange={onChangeCategory}>
           {data.map((value) => {
             return (
               <SelectAnt.Option key={value.id} value={value?.id}>
-                {value.name}
+                {(value.name)}
               </SelectAnt.Option>
             );
           })}

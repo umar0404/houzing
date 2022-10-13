@@ -48,6 +48,11 @@ const SelectAnt = styled(Select)`
   width: 100%;
   min-width: 150px;
   max-width: 150px;
+  .ant-select-selector {
+    height: 44px !important;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export { Container, Icons, MenuWrapper, Section, SelectAnt };
