@@ -40,7 +40,7 @@ export const Filter = () => {
       .then((res) => {
         setDate(res?.data || []);
       });
-  }, []);
+  }, [url]);
 
   const menu = (
     <MenuWrapper>
@@ -83,7 +83,7 @@ export const Filter = () => {
         <SelectAnt labelInValue>
           {data.map((value) => {
             return (
-              <SelectAnt.Option value={value?.id}>
+              <SelectAnt.Option key={value.id} value={value?.id}>
                 {value.name}
               </SelectAnt.Option>
             );
