@@ -54,6 +54,7 @@ font-weight: 400;
 font-size: 14px;
 line-height: 20px;
 color: #696969;
+margin-top: 8px;
 }
 
 .inline{
@@ -65,4 +66,8 @@ color: #696969;
 .slick-prev:before, .slick-next:before {
 color: black !important;
 font-size: 25px !important;
+}
+
+.ant-carousel .slick-dots-bottom {
+  width: inherit !important;
 }
