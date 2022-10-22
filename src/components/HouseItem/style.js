@@ -1,4 +1,4 @@
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { ReactComponent as share } from "../../assets/icons/share.svg";
 import { ReactComponent as love } from "../../assets/icons/love.svg";
 
