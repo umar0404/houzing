@@ -9,6 +9,7 @@ const Container = styled.div`
   padding: var(--padding);
   max-width: 1440px;
   margin: auto;
+  margin-top: 50px;
   width: 100%;
 `;
 

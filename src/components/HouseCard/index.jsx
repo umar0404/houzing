@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Content, Details, Img, Icons, Devider } from "./style";
 import noimg from "../../assets/img/noimg.png";
 
-export const HouseCard = ({ data = {}, gap }) => {
+export const HouseCard = ({ data = {}, gap, onClick }) => {
   const {
     houseDetails,
     attachments,
@@ -15,7 +15,7 @@ export const HouseCard = ({ data = {}, gap }) => {
     category,
   } = data;
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex" }} onClick={onClick}>
       <Container gap={gap}>
         <Img src={(attachments && attachments[0]?.imgPath) || noimg} />
         <Content>
