@@ -1,7 +1,6 @@
 import { Checkbox } from "antd";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import useRequest from "../../hooks/useRequest";
 import { Input, Button } from "../Generic";
 import Recent from "../Recent";
 import nouser from "../../assets/img/noimg.jpeg";
@@ -18,17 +17,11 @@ import {
 } from "./style";
 import Yandex from "../Generic/YandexMap";
 
-// const { REACT_APP_BASE_URL: url } = process.env;
-
 export const HouseItem = () => {
   const [data, setDate] = useState({});
   const params = useParams();
-  // const request = useRequest();
 
   useEffect(() => {
-    // request({ url: `/houses/list/${params?.id}` }).then((res) =>
-    //   setData(res?.data || [])
-    // );
     fetch(`https://houzing-app.herokuapp.com/api/v1/houses/id/${params?.id}`)
       .then((res) => res.json())
       .then((res) => {
@@ -227,3 +220,4 @@ export const HouseItem = () => {
 };
 
 export default HouseItem;
+ 

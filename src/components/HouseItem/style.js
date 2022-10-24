@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { ReactComponent as share } from "../../assets/icons/share.svg";
 import { ReactComponent as love } from "../../assets/icons/love.svg";
-
 import { ReactComponent as bed } from "../../assets/icons/bed.svg";
 import { ReactComponent as bath } from "../../assets/icons/bath.svg";
 import { ReactComponent as car } from "../../assets/icons/car.svg";
 import { ReactComponent as ruler } from "../../assets/icons/ruler.svg";
 import { ReactComponent as resize } from "../../assets/icons/resize.svg";
-
 import { ReactComponent as airConditioner } from "../../assets/icons/airConditioner.svg";
 import { ReactComponent as barbecue } from "../../assets/icons/barbecue.svg";
 import { ReactComponent as dryer } from "../../assets/icons/dryer.svg";
