@@ -1,4 +1,4 @@
-import Home, { Favourite } from "../../components/Favourite";
+import { Favourite } from "../../components/Favourite";
 
 export const HomePage = () => <Favourite />;
 
