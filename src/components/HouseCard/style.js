@@ -64,11 +64,15 @@ Icons.Love = styled(love)`
   height: 25px;
   padding: 6px;
   background: #f6f8f9;
+  background: ${({ favorite }) => (favorite ? "red" : "#f6f8f9")};
   border-radius: 50%;
   margin-left: 20px;
   cursor: pointer;
   :active {
     transform: scale(0.9);
+  }
+  & path {
+    fill: ${({ favorite }) => favorite && "white"};
   }
 `;
 

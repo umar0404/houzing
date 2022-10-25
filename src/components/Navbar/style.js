@@ -11,7 +11,7 @@ const Container = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-   background: var(--colorPrimary);
+  background: var(--colorPrimary);
 `;
 
 const Wrapper = styled.div`
@@ -52,4 +52,27 @@ const Link = styled(NavLink)`
   color: white;
 `;
 
-export { Container, Wrapper, Section, Logo, Link, Main };
+const Menu = styled.div`
+  width: 177px;
+  border-radius: 5px;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 16px;
+  gap: 16px;
+  box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06),
+    0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06);
+`;
+
+Menu.Item = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  cursor: pointer;
+`;
+
+export { Container, Wrapper, Section, Logo, Link, Main, Menu };

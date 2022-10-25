@@ -15,7 +15,7 @@ export const Properties = () => {
     request({ url: `/houses/list${search}` }).then((res) =>
       setDate(res?.data || [])
     );
-  });
+  }, [search, request]);
 
   const onSelect = (id) => {
     navigate(`/properties/${id}`);

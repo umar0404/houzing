@@ -47,7 +47,11 @@
 
 // 10-dars
 // Deploy
-// Image gallery
+// Favourite page complated
+// Like and Dislike implemented
+// Navbar registor button fixed
+// Register => signin, signup
+// SignUp
 
 // BUGS
 // house card height
@@ -56,8 +60,10 @@
 // Yandex map -> Placemarker
 
 // Feature
+// Image gallery
 // Private Route & useRequest
 // Register
 // Favourites
 // Edit house
 // Add house
+// Loader

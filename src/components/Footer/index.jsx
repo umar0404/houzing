@@ -8,7 +8,7 @@ export const Why = () => {
         <Content.Title>Contact Us</Content.Title>
         <Content.Item>
           <Icon.Location />
-          Mirzo Ulug'bek ko'chasi, 61-dom, 11-xonadon
+          Mirzo Ulug'bek ko'chasi, 60-dom, 11-xonadon
         </Content.Item>
         <Content.Item>
           <Icon.Phone />

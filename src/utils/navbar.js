@@ -1,6 +1,7 @@
 import React from "react";
 import useId from "../hooks/useId";
-import Signin from "../pages/Signin";
+import Signin from "../pages/Register";
+import Favourite from "../pages/Favourite";
 
 const Properties = React.lazy(() => import("../pages/Properties"));
 const HomePage = React.lazy(() => import("../pages/Home"));
@@ -46,6 +47,14 @@ export const navbar = [
     title: "Single House",
     path: "/properties/:id",
     private: false,
+    hidden: true,
+  },
+  {
+    id: useId,
+    element: <Favourite />,
+    title: "Favourite",
+    path: "/favourite",
+    private: true,
     hidden: true,
   },
   {

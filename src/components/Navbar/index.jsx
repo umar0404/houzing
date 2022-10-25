@@ -3,11 +3,47 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
 import Filter from "../Filter";
 import Button from "../Generic/Button/index";
-import { Container, Logo, Section, Wrapper, Link, Main } from "./style";
+import { Container, Logo, Section, Wrapper, Link, Main, Menu } from "./style";
 import Footer from "../Footer";
+import { Dropdown } from "antd";
 
 export const Navbar = () => {
+  let token = localStorage.getItem("token");
   const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate("/signin");
+  };
+
+  const onClickProfile = ({
+    target: {
+      dataset: { name },
+    },
+  }) => {
+    if (name === "logout") {
+      localStorage.removeItem("token");
+      navigate(`/home`);
+    } else {
+      navigate(`${name}`);
+    }
+  };
+
+  const menu = (
+    <Menu>
+      <Menu.Item data-name="my-profile" onClick={onClickProfile}>
+        Profile
+      </Menu.Item>
+      <Menu.Item data-name="my-properties" onClick={onClickProfile}>
+        My Properties
+      </Menu.Item>
+      <Menu.Item data-name="favourite" onClick={onClickProfile}>
+        Favourites
+      </Menu.Item>
+      <Menu.Item data-name="logout" onClick={onClickProfile}>
+        Log out
+      </Menu.Item>
+    </Menu>
+  );
   return (
     <Container>
       <Main>
@@ -31,12 +67,21 @@ export const Navbar = () => {
             })}
           </Section>
           <Section>
-            <Button
-              onClick={() => navigate("/signin")}
-              width={"120"}
-              type={"dark"}>
-              Sign In
-            </Button>
+            {token ? (
+              <Dropdown
+                overlay={menu}
+                placement="topRight"
+                arrow={{ pointAtCenter: true }}
+                trigger="click">
+                <Button width={"120"} type={"dark"}>
+                  <div>Profile</div>
+                </Button>
+              </Dropdown>
+            ) : (
+              <Button onClick={onClick} width={"120"} type={"dark"}>
+                Sign In
+              </Button>
+            )}
           </Section>
         </Wrapper>
       </Main>

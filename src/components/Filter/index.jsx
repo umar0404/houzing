@@ -144,13 +144,11 @@ export const Filter = () => {
         trigger="click">
         <div>
           <Button type={"light"}>
-            {" "}
             <Icons.Setting /> Advenced
           </Button>
         </div>
       </Dropdown>
       <Button width={"180"}>
-        {" "}
         <Icons.Filter /> Search
       </Button>
     </Container>
