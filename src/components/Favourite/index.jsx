@@ -28,7 +28,6 @@ export const Favourite = () => {
     {
       onSuccess: (res) => {
         dispatch({ type: "refetch", payload: refetch });
-        // setDate(res?.data || []);
       },
     }
   );

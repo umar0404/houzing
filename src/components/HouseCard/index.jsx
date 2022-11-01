@@ -38,7 +38,7 @@ export const HouseCard = ({ data = {}, gap, onClick }) => {
       .then((res) => {
         if (favorite) res?.success && message.warning("Successfully disliked");
         else res?.success && message.info("Successfully liked");
-        state.refetch && state.refetch();
+        state?.refetch && state?.refetch();
       });
   };
 
@@ -81,7 +81,7 @@ export const HouseCard = ({ data = {}, gap, onClick }) => {
           </Details.Item>
           <Details.Item row>
             <Icons.Resize />
-            <Icons.Love onClick={save} favorite="true" />
+            <Icons.Love onClick={save} favorite={favorite} />
           </Details.Item>
         </Content>
       </Container>

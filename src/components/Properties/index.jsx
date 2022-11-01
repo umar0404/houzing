@@ -3,19 +3,27 @@ import { Container } from "./style";
 import HouseCard from "../HouseCard";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useRequest from "../../hooks/useRequest";
+// import useRequest from "../../hooks/useRequest";
+
+const { REACT_APP_BASE_URL: url } = process.env;
 
 export const Properties = () => {
   const [data, setDate] = useState([]);
   const { search } = useLocation();
   const navigate = useNavigate();
-  const request = useRequest();
+  // const request = useRequest();
 
   useEffect(() => {
-    request({ url: `/houses/list${search}` }).then((res) =>
-      setDate(res?.data || [])
-    );
-  }, [search, request]);
+    fetch(`${url}/houses/list${search}`)
+      .then((res) => res.json())
+      .then((res) => setDate(res?.data || []));
+  }, [search]);
+
+  // useEffect(() => {
+  //   request({ url: `/houses/list${search}` }).then((res) =>
+  //     setDate(res?.data || [])
+  //   );
+  // }, [search]);
 
   const onSelect = (id) => {
     navigate(`/properties/${id}`);

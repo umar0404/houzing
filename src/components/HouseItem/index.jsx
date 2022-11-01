@@ -26,7 +26,7 @@ export const HouseItem = () => {
       .then((res) => res.json())
       .then((res) => {
         setDate(res?.data);
-        window.scroll(0, 0);
+        window.scrollTo(0, 0);
       });
   }, [params?.id]);
 
@@ -220,4 +220,3 @@ export const HouseItem = () => {
 };
 
 export default HouseItem;
- 
